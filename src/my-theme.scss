@@ -1,0 +1,24 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$grey-palette, 900);
+$my-accent: mat.define-palette(mat.$grey-palette, 900);
+$my-backdrop: mat.define-palette(mat.$blue-palette, 500);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      backdrop: $my-backdrop,
+    ),
+  )
+);
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.all-component-themes($my-theme);
+/*Config para coisas do material (Gambiarra ou genial?)*/
+.mat-drawer-backdrop.mat-drawer-shown {
+  background-color: rgba(24, 24, 24, 0.7);
+}

@@ -1,0 +1,44 @@
+.card {
+  border: 1px solid rgba($color: #000000, $alpha: 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 300px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 5px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(230px, 308px));
+  justify-items: center;
+}
+
+.card-title {
+  font-size: x-large;
+}
+
+.card-image {
+  width: auto;
+  height: 70px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions {
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}

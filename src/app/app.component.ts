@@ -3,8 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-marvel-api';
+  opened: boolean = false;
+  title = 'Angular Marvel API ';
+
+  toggle() {
+    this.opened = !this.opened;
+  }
 }
