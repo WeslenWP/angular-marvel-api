@@ -2,11 +2,11 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$grey-palette, 900);
-$my-accent: mat.define-palette(mat.$grey-palette, 900);
+$my-primary: mat.define-palette(mat.$grey-palette, 500);
+$my-accent: mat.define-palette(mat.$grey-palette, 500);
 $my-backdrop: mat.define-palette(mat.$blue-palette, 500);
 
-$my-theme: mat.define-light-theme(
+$my-theme: mat.define-dark-theme(
   (
     color: (
       primary: $my-primary,

@@ -1,29 +1,24 @@
-/* Modulos*/
-import { MaterialModule } from './material/material.module';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './components/template/toolbar/toolbar.component';
-import { SidenavComponent } from './components/template/sidenav/sidenav.component';
 
-import { HeroesListComponent } from './components/heroes/heroes-list/heroes-list.component';
+import { CoreModule } from './core/core.module';
+import { HeroesModule } from './heroes/heroes.module';
+
+const modules = [CoreModule, HeroesModule];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ToolbarComponent,
-    SidenavComponent,
-    HeroesListComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
+
+    //External
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

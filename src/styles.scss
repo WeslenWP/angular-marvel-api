@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "my-theme.scss";
 
+@font-face {
+  font-family: Bebas;
+  src: url("assets/fonts/Bebas-Regular.ttf");
+}
+
 html,
 body {
   height: 100%;
@@ -15,4 +20,26 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+body {
+  overflow-y: scroll;
+  background-color: #3f3a3a;
+}
+
+*::-webkit-scrollbar {
+  width: 8px; /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: #504a4a;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #616161; /* color of the scroll thumb */
+  border: 1px solid #616161; /* creates padding around scroll thumb */
+  border-radius: 30px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #919191;
 }

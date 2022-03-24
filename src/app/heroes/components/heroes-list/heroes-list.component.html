@@ -1,0 +1,22 @@
+<section>
+    <div class="container">
+        <div class="row" *ngFor="let ch of allCharacters">
+            <mat-card class="card">
+                <mat-card-header style="align-items: center;">
+                    <img mat-card-avatar class="card-image" src="{{ch.thumbnail.path}}/standard_fantastic.jpg"
+                        onerror='this.src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available/standard_fantastic.jpg"'
+                        alt="Photo of a Hero" position="start" />
+                    <mat-card-title class="card-title">{{ch.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p>
+                        {{ch.description? ch.description:'Description unavailable'}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions class="actions">
+                    <button mat-raised-button (click)="log()">View more</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</section>

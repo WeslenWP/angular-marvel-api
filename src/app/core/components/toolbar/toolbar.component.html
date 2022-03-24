@@ -2,20 +2,22 @@
 [matMenuTriggerFor]="myMenu"
 
 -->
-<mat-toolbar color="primary">
+<mat-toolbar>
     <div class="container">
-        <mat-menu #myMenu="matMenu" yPosition="above" overlayPanelClass="black" hasBackdrop="true">
+        <mat-menu color="warn" #myMenu="matMenu" yPosition="above" overlayPanelClass="black" hasBackdrop="true">
             <button mat-menu-item> Characters</button>
             <button mat-menu-item>Comics</button>
         </mat-menu>
-        <button class="menu-button" (click)="toggleSideNav()" mat-mini-fab color="primary" position="start">
+        <button class="menu-button" (click)="toggleSideNav()" mat-mini-fab color="warn" position="start">
             <mat-icon>menu</mat-icon>
         </button>
 
-        <figure style="display: inline-flex;align-items: center;">
+        <!-- <figure style="display: inline-flex;align-items: center;">
             <img height="46px" src="./assets/Marvel.png" alt="">
-        </figure>
-
+        </figure> -->
+        <div class="logo">
+            MARVE<span>L</span>
+        </div>
 
         <div class="api"><span>Api Integration</span></div>
         <div class="nav">
