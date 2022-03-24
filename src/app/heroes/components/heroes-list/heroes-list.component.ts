@@ -30,14 +30,12 @@ export class HeroesListComponent implements OnInit {
     const heightContainer = this.container.nativeElement.scrollHeight;
     const toolbar = document.documentElement.scrollHeight - heightContainer;
     const scroll = document.documentElement.scrollTop + toolbar;
-    const documentheight = document.documentElement.scrollHeight - 750;
+    const documentheight = document.documentElement.scrollHeight - 725;
 
     console.log();
-    if (scroll >= documentheight && this.haveRequest == false) {
-      console.log(scroll);
-      console.log(document.documentElement.scrollHeight);
+    
+    if (scroll >= documentheight / 2 && this.haveRequest == false)
       this.heroes();
-    }
   }
 
   constructor(private characters: CharactersService) {}
