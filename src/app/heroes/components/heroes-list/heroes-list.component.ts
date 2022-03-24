@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { tap } from 'rxjs';
 import { CharactersService } from 'src/app/core/services/characters.service';
 
 @Component({
@@ -7,29 +14,55 @@ import { CharactersService } from 'src/app/core/services/characters.service';
   styleUrls: ['./heroes-list.component.scss'],
 })
 export class HeroesListComponent implements OnInit {
-  repeat = [
-    { number: 1 },
-    { number: 2 },
-    { number: 3 },
-    { number: 1 },
-    { number: 2 },
-  ];
+  //variaveis
+  private offset: number = 0;
+
+  allCharacters: any = [];
+
+  haveRequest: boolean = false;
+
+  //Decorators
+
+  @ViewChild('container') container!: ElementRef;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const heightContainer = this.container.nativeElement.scrollHeight;
+    const toolbar = document.documentElement.scrollHeight - heightContainer;
+    const scroll = document.documentElement.scrollTop + toolbar;
+    const documentheight = document.documentElement.scrollHeight - 750;
+
+    console.log();
+    if (scroll >= documentheight && this.haveRequest == false) {
+      console.log(scroll);
+      console.log(document.documentElement.scrollHeight);
+      this.heroes();
+    }
+  }
 
   constructor(private characters: CharactersService) {}
 
-  allCharacters: any;
   ngOnInit(): void {
-    setTimeout(() => this.heroes(), 1);
+    this.heroes();
   }
 
   ngAfterContentInit(): void {}
 
-  heroes(offset: number = 0) {
-    this.characters.getAllCharacters(offset).subscribe((res) => {
-      this.allCharacters = res.data.results;
-    });
-  }
-  log() {
-    console.log(this.allCharacters);
+  heroes(offset: number = this.offset) {
+    this.haveRequest = true;
+    this.characters
+      .getAllCharacters(offset)
+      .pipe(
+        tap(() => {
+          this.offset += 20;
+          this.haveRequest = false;
+        })
+      )
+      .subscribe((res) => {
+        this.allCharacters.push(...res.data.results);
+
+        // Object.assign(this.allCharacters, res.data.results);
+        console.log(this.allCharacters);
+      });
   }
 }

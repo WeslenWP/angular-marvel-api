@@ -1,6 +1,6 @@
 <section>
-    <div class="container">
-        <div class="row" *ngFor="let ch of allCharacters">
+    <div class="container" #container>
+        <div class="row" *ngFor="let ch of allCharacters ">
             <mat-card class="card">
                 <mat-card-header style="align-items: center;">
                     <img mat-card-avatar class="card-image" src="{{ch.thumbnail.path}}/standard_fantastic.jpg"
@@ -14,7 +14,7 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions class="actions">
-                    <button mat-raised-button (click)="log()">View more</button>
+                    <button mat-raised-button>View more</button>
                 </mat-card-actions>
             </mat-card>
         </div>
