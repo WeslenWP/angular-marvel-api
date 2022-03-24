@@ -33,9 +33,9 @@ export class HeroesListComponent implements OnInit {
     const documentheight = document.documentElement.scrollHeight - 725;
 
     console.log();
-    
+
     if (scroll >= documentheight / 2 && this.haveRequest == false)
-      this.heroes();
+      this.heroes(20);
   }
 
   constructor(private characters: CharactersService) {}
@@ -46,21 +46,18 @@ export class HeroesListComponent implements OnInit {
 
   ngAfterContentInit(): void {}
 
-  heroes(offset: number = this.offset) {
+  heroes(limit: number = 40, offset: number = this.offset) {
     this.haveRequest = true;
     this.characters
-      .getAllCharacters(offset)
+      .getAllCharacters(offset, limit)
       .pipe(
         tap(() => {
-          this.offset += 20;
+          this.offset += limit;
           this.haveRequest = false;
         })
       )
       .subscribe((res) => {
         this.allCharacters.push(...res.data.results);
-
-        // Object.assign(this.allCharacters, res.data.results);
-        console.log(this.allCharacters);
       });
   }
 }

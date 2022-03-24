@@ -18,8 +18,8 @@ export class CharactersService {
     this.hash = Md5.hashStr(this.timestamp + this.privateK + this.publicK);
   }
 
-  getAllCharacters(offset: number): Observable<any> {
-    const finalUrl = `${this.url}?ts=${this.timestamp}&apikey=${this.publicK}&hash=${this.hash}&limit=20&offset=${offset}`;
+  getAllCharacters(offset: number, limit: number): Observable<any> {
+    const finalUrl = `${this.url}?ts=${this.timestamp}&apikey=${this.publicK}&hash=${this.hash}&limit=${limit}&offset=${offset}`;
     return this.http.get(finalUrl);
   }
 
