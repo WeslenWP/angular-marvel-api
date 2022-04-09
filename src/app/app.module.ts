@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from './core/core.module';
-import { HeroesModule } from './heroes/heroes.module';
+import { CharactersModule } from './characters/characters.module';
 
-const modules = [CoreModule, HeroesModule];
+const modules = [CoreModule, CharactersModule];
 
 @NgModule({
   declarations: [AppComponent],

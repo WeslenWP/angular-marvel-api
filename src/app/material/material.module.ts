@@ -8,7 +8,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 const material = [
   MatToolbarModule,
   MatSidenavModule,
@@ -18,6 +20,9 @@ const material = [
   MatIconModule,
   MatMenuModule,
   MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatAutocompleteModule,
+  MatInputModule,
 ];
 
 @NgModule({

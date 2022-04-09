@@ -9,11 +9,14 @@ mat-toolbar {
 }
 
 .logo {
+  position: relative;
+  top: -3.8px;
   height: 100%;
   font-family: Bebas, sans-serif;
   font-size: 50pt;
   letter-spacing: -5px;
-  line-height: 0.38;
+  display: flex;
+  align-items: center;
 }
 
 .logo span {
@@ -90,6 +93,6 @@ a:hover {
     display: none;
   }
   .logo {
-    line-height: 0.5;
+    justify-content: center;
   }
 }

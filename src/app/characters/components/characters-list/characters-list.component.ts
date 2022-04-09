@@ -9,11 +9,11 @@ import { tap } from 'rxjs';
 import { CharactersService } from 'src/app/core/services/characters.service';
 
 @Component({
-  selector: 'app-heroes-list',
-  templateUrl: './heroes-list.component.html',
-  styleUrls: ['./heroes-list.component.scss'],
+  selector: 'app-characters-list',
+  templateUrl: './characters-list.component.html',
+  styleUrls: ['./characters-list.component.scss'],
 })
-export class HeroesListComponent implements OnInit {
+export class CharactersListComponent implements OnInit {
   //variaveis
   private offset: number = 0;
 
@@ -35,20 +35,20 @@ export class HeroesListComponent implements OnInit {
     console.log();
 
     if (scroll >= documentheight / 2 && this.haveRequest == false)
-      this.heroes(20);
+      this.characters(20);
   }
 
-  constructor(private characters: CharactersService) {}
+  constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {
-    this.heroes();
+    this.characters();
   }
 
   ngAfterContentInit(): void {}
 
-  heroes(limit: number = 40, offset: number = this.offset) {
+  characters(limit: number = 40, offset: number = this.offset) {
     this.haveRequest = true;
-    this.characters
+    this.charactersService
       .getAllCharacters(offset, limit)
       .pipe(
         tap(() => {
