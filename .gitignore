@@ -7,9 +7,9 @@
 /bazel-out
 
 # Node
-/node_modules
 npm-debug.log
 yarn-error.log
+/node_modules
 
 # IDEs and editors
 .idea/
@@ -41,5 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#Enviroment
-src/environments/environment.ts
+
+#Environment
+
+/src/environments/environment.ts
