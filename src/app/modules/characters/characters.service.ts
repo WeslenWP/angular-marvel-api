@@ -3,13 +3,14 @@ import { catchError, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Md5 } from 'ts-md5/dist/md5';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CharactersService {
-  privateK: string = 'b7b12706e5339f886d677503cb429a41228dc82a';
-  publicK: string = 'd6413414379af37b94c4d8fb663d85fe';
+  privateK: string = environment.privateK;
+  publicK: string = environment.publicK;
   timestamp: number = new Date().getTime();
   hash: string;
   url: string = 'https://gateway.marvel.com/v1/public/characters';
