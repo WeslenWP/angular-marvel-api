@@ -1,5 +1,5 @@
 # Work in Progress
-## Change the environment example file in src as instructed
+Change the environment example file in src as instructed
 
 
 # Angular Marvel Api
