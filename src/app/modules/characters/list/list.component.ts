@@ -6,12 +6,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { tap } from 'rxjs';
-import { CharactersService } from 'src/app/core/services/characters.service';
+import { CharactersService } from '../characters.service';
 
 @Component({
   selector: 'app-characters-list',
-  templateUrl: './characters-list.component.html',
-  styleUrls: ['./characters-list.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
 })
 export class CharactersListComponent implements OnInit {
   //variaveis

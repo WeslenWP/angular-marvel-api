@@ -1,9 +1,9 @@
+import { MaterialModule } from 'src/app/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CharactersRoutingModule } from './characters-routing.module';
-import { CharactersListComponent } from './components/characters-list/characters-list.component';
-import { MaterialModule } from '../material/material.module';
+import { CharactersListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [CharactersListComponent],
