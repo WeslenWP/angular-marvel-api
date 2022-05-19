@@ -1,10 +1,2 @@
-<mat-sidenav-container>
-    <mat-sidenav class="sidenav" (closed)="toggle()" mode="over" [opened]="opened">
-        <app-sidenav></app-sidenav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <app-toolbar></app-toolbar>
-        <router-outlet></router-outlet>
-        <app-loading></app-loading>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<app-toolbar></app-toolbar>
+<router-outlet></router-outlet>
