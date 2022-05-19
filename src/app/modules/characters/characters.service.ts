@@ -39,15 +39,14 @@ export class CharactersService {
     const finalUrl = `${this.authUrl}&limit=${limit}&offset=${offset}`;
     const result: any = this.http.get(finalUrl);
 
-    let subject = result.pipe(tap(() => { this.haveRequest = false }))
+    let subject = result.pipe(tap(() => { this.haveRequest = false; this._loadingService.hide() }))
       .subscribe((res: any) => this.characters.next(res.data.results))
 
-
-    // this.characters.next(this.charact ers.getValue() + result);
   }
 
   searchCharacters(search: string,) {
-    console.log(search)
+    this._loadingService.show()
+
     if (search == '') {
       this.getAllCharacters(0, 40);
       return this.searching = false;
@@ -58,7 +57,7 @@ export class CharactersService {
     const finalUrl = `${this.authUrl}&nameStartsWith=${search}&limit=10`;
     const result: any = this.http.get(finalUrl);
 
-    let subject = result.pipe(tap(() => { this.haveRequest = false }))
+    let subject = result.pipe(tap(() => { this.haveRequest = false; this._loadingService.hide() }))
       .subscribe((res: any) => { this.characters.next(res.data.results) })
     return;
   }
