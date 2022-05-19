@@ -13,6 +13,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
+  background-color: #3f3a3a;
 }
 
 * {
@@ -20,11 +22,6 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-}
-
-body {
-  overflow-y: scroll;
-  background-color: #3f3a3a;
 }
 
 *::-webkit-scrollbar {
@@ -44,6 +41,6 @@ body {
   background-color: #919191;
 }
 
-.load-container{
+.load-container {
   background-color: #3f3a3a;
 }
