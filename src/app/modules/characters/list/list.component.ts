@@ -19,7 +19,7 @@ export class CharactersListComponent implements OnInit {
 
   allCharacters: any[] = [];
 
-  haveRequest: boolean = false;
+  isLoading: boolean = true;
 
   //Decorators
 
@@ -45,20 +45,24 @@ export class CharactersListComponent implements OnInit {
   searchState: boolean = false;
 
   ngOnInit(): void {
-    // this.characters();
-    this._charactersService.characters$.subscribe((res) => {
-      if (this.searchState != this._charactersService.searching) {
-        this.searchState = this._charactersService.searching
-        this.allCharacters = []
-      }
+    this.getCharacters();
+  }
 
-      if (!this._charactersService.searching) {
-        this.allCharacters.push(...res)
-      } else {
-        this.allCharacters = res
+  getCharacters() {
+    this._charactersService.characters$.subscribe((res) => {
+      if (res) {
+        this.isLoading = false; 
+        if (this.searchState != this._charactersService.searching) {
+          this.searchState = this._charactersService.searching
+          this.allCharacters = []
+        }
+
+        if (!this._charactersService.searching) {
+          this.allCharacters.push(...res)
+        } else {
+          this.allCharacters = res
+        }
       }
     })
   }
-
-  ngAfterContentInit(): void { }
 }
