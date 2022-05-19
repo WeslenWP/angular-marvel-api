@@ -54,7 +54,7 @@ export class CharactersService {
 
     this.haveRequest = true
     this.searching = true;
-    const finalUrl = `${this.authUrl}&nameStartsWith=${search}&limit=10`;
+    const finalUrl = `${this.authUrl}&nameStartsWith=${search}&limit=9`;
     const result: any = this.http.get(finalUrl);
 
     let subject = result.pipe(tap(() => { this.haveRequest = false; this._loadingService.hide() }))
