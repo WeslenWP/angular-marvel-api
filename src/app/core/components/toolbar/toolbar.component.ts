@@ -22,10 +22,11 @@ export class ToolbarComponent implements OnInit {
 
   timer: any;
   search(inputSearch: HTMLInputElement) {
+    if (inputSearch.value == '') this._charactersService.searchCharacters(inputSearch.value)
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this._charactersService.searchCharacters(inputSearch.value)
-    }, 200)
+    }, 500)
 
   }
 
