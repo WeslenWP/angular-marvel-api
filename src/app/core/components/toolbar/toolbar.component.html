@@ -14,7 +14,7 @@
 
         <div class="form-field">
             <mat-icon class="search-icon">search</mat-icon>
-            <input type="text" placeholder="Search for a character" #search />
+            <input type="text" placeholder="Search for a character" #inputSearch (input)="search(inputSearch)" />
         </div>
 
     </div>
