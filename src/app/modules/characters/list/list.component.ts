@@ -42,10 +42,21 @@ export class CharactersListComponent implements OnInit {
     this._charactersService.getAllCharacters(0, 40)
   }
 
+  searchState: boolean = false;
+
   ngOnInit(): void {
     // this.characters();
     this._charactersService.characters$.subscribe((res) => {
-      this.allCharacters.push(...res)
+      if (this.searchState != this._charactersService.searching) {
+        this.searchState = this._charactersService.searching
+        this.allCharacters = []
+      }
+
+      if (!this._charactersService.searching) {
+        this.allCharacters.push(...res)
+      } else {
+        this.allCharacters = res
+      }
     })
   }
 
