@@ -1,11 +1,3 @@
-* {
-  color: white;
-}
-
-::ng-deep .mat-form-field-underline {
-  display: none !important;
-}
-
 .logo {
   position: relative;
   top: -3.8px;
@@ -20,43 +12,37 @@
 .logo span {
   padding-left: 2.5px;
 }
+
 mat-toolbar {
   justify-content: center;
   background-color: #e23636 !important;
 }
 
 .container {
-  // display: inline-flex;
-  // justify-content: space-between;
   display: grid;
   justify-items: start;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
-
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
-  // left: 3px;
-  // margin: 0 auto;
   max-width: 1000px;
 }
 
 .form-field {
   height: 80%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: end;
 }
 
 .form-field input::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
 .form-field input {
   box-sizing: border-box;
   background-color: transparent;
-  color: white !important;
   border: 2px rgba($color: #fff, $alpha: 0.7) solid;
   border-radius: 50px;
 
@@ -80,54 +66,18 @@ mat-toolbar {
   right: 35px;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-self: end;
-}
-
-a {
-  color: rgb(185, 185, 185);
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.1s;
-}
-
-a:hover {
-  color: rgb(224, 224, 224);
-  transform: scale(1.02);
-}
-
-.selected {
-  color: white !important;
-  transform: scale(1) !important;
-}
-
-.menu-button {
-  display: none !important;
-}
-
-@media only screen and (max-width: 580px) {
-  .menu-button {
-    position: relative;
-    display: block !important;
-    left: 5px;
-  }
+@media only screen and (max-width: 540px) {
   .container {
-    left: 0;
-  }
-  .nav {
-    display: none !important;
-  }
-  figure {
-    justify-self: center;
+    grid-template-columns: repeat(2, 1fr);
   }
   .form-field {
-    display: none !important;
+    justify-content: flex-start;
+  }
+  .form-field input {
+    font-size: 10pt;
+    padding-left: 37px;
   }
   .logo {
-    justify-content: center;
+    font-size: 32pt;
   }
 }

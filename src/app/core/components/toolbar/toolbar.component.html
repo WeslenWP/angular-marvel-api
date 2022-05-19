@@ -1,21 +1,13 @@
 <mat-toolbar>
     <div class="container">
-        <mat-menu color="warn" #myMenu="matMenu" yPosition="above" overlayPanelClass="black" hasBackdrop="true">
-            <button mat-menu-item> Characters</button>
-            <button mat-menu-item>Comics</button>
-        </mat-menu>
-        <button class="menu-button" (click)="toggleSideNav()" mat-mini-fab color="warn" position="start">
-            <mat-icon>menu</mat-icon>
-        </button>
 
         <div class="logo" translate="no">
             MARVE<span>L</span>
         </div>
-
         <div class="form-field">
             <mat-icon class="search-icon">search</mat-icon>
             <input type="text" placeholder="Search for a character" #inputSearch (input)="search(inputSearch)" />
         </div>
-
     </div>
 </mat-toolbar>
+<app-loading></app-loading>
