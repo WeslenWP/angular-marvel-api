@@ -16,6 +16,7 @@
 mat-toolbar {
   justify-content: center;
   background-color: #e23636 !important;
+  width: 100%;
 }
 
 .container {
@@ -48,7 +49,8 @@ mat-toolbar {
 
   font-size: 16pt;
   transition: border-color 0.25s;
-  padding: 8px 37px;
+  padding: 8px;
+  padding-left: 37px;
   outline: none;
 }
 
@@ -59,11 +61,6 @@ mat-toolbar {
 .form-field .search-icon {
   position: relative;
   left: 35px;
-}
-
-.form-field .cancel-icon {
-  position: relative;
-  right: 35px;
 }
 
 @media only screen and (max-width: 540px) {
