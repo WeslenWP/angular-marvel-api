@@ -2,10 +2,8 @@
   color: white;
 }
 
-mat-toolbar {
-  padding: 0;
-  justify-content: center;
-  background-color: red;
+::ng-deep .mat-form-field-underline {
+  display: none !important;
 }
 
 .logo {
@@ -22,30 +20,71 @@ mat-toolbar {
 .logo span {
   padding-left: 2.5px;
 }
+mat-toolbar {
+  justify-content: center;
+  background-color: #e23636 !important;
+}
 
 .container {
   // display: inline-flex;
   // justify-content: space-between;
   display: grid;
+  justify-items: start;
+  align-items: center;
   grid-template-columns: repeat(3, 1fr);
+
   width: 100%;
-  position: relative;
   // left: 3px;
   // margin: 0 auto;
-  padding: 0 8px;
-  max-width: 1200px;
-  align-items: center;
-  vertical-align: middle;
+  max-width: 1000px;
 }
 
-.api {
-  justify-self: center;
+.form-field {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-field input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.form-field input {
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white !important;
+  border: 2px rgba($color: #fff, $alpha: 0.7) solid;
+  border-radius: 50px;
+
+  font-size: 16pt;
+  transition: border-color 0.25s;
+  padding: 8px 37px;
+  outline: none;
+}
+
+.form-field input:focus {
+  border-color: #fff;
+}
+
+.form-field .search-icon {
+  position: relative;
+  left: 35px;
+}
+
+.form-field .cancel-icon {
+  position: relative;
+  right: 35px;
 }
 
 .nav {
-  justify-self: end;
-  display: inline-flex;
+  display: flex;
+  align-items: center;
   gap: 8px;
+  justify-self: end;
 }
 
 a {
@@ -67,16 +106,13 @@ a:hover {
 }
 
 .menu-button {
-  display: none;
+  display: none !important;
 }
 
 @media only screen and (max-width: 580px) {
-  mat-toolbar {
-    padding: 0;
-  }
   .menu-button {
     position: relative;
-    display: block;
+    display: block !important;
     left: 5px;
   }
   .container {
@@ -85,12 +121,11 @@ a:hover {
   .nav {
     display: none !important;
   }
-
   figure {
     justify-self: center;
   }
-  .api {
-    display: none;
+  .form-field {
+    display: none !important;
   }
   .logo {
     justify-content: center;
