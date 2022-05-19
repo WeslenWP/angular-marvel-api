@@ -8,10 +8,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/characters/characters.module').then((m) => m.CharactersModule),
   },
+  { path: '**', redirectTo: '/characters' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
