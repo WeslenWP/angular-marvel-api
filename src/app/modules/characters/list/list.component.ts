@@ -15,9 +15,9 @@ import { CharactersService } from '../characters.service';
 })
 export class CharactersListComponent implements OnInit {
   //variaveis
-  private offset: number = 0;
+  private offset: number = 40;
 
-  allCharacters: any = [];
+  allCharacters: any[] = [];
 
   haveRequest: boolean = false;
 
@@ -32,32 +32,22 @@ export class CharactersListComponent implements OnInit {
     const scroll = document.documentElement.scrollTop + toolbar;
     const documentheight = document.documentElement.scrollHeight - 725;
 
-    console.log();
-
-    if (scroll >= documentheight / 2 && this.haveRequest == false)
-      this.characters(20);
+    if ((scroll >= documentheight / 2) && (!this._charactersService.haveRequest) && (!this._charactersService.searching)) {
+      this._charactersService.getAllCharacters(this.offset, 40)
+      this.offset += 40
+    }
   }
 
-  constructor(private charactersService: CharactersService) {}
+  constructor(private _charactersService: CharactersService) {
+    this._charactersService.getAllCharacters(0, 40)
+  }
 
   ngOnInit(): void {
-    this.characters();
+    // this.characters();
+    this._charactersService.characters$.subscribe((res) => {
+      this.allCharacters.push(...res)
+    })
   }
 
-  ngAfterContentInit(): void {}
-
-  characters(limit: number = 40, offset: number = this.offset) {
-    this.haveRequest = true;
-    this.charactersService
-      .getAllCharacters(offset, limit)
-      .pipe(
-        tap(() => {
-          this.offset += limit;
-          this.haveRequest = false;
-        })
-      )
-      .subscribe((res) => {
-        this.allCharacters.push(...res.data.results);
-      });
-  }
+  ngAfterContentInit(): void { }
 }
