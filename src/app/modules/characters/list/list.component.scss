@@ -80,3 +80,9 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+.loader{
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
